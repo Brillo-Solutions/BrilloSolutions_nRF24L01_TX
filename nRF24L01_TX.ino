@@ -35,9 +35,9 @@ void loop()
   digitalWrite(CE_pin, HIGH);                               // Making radio ready to get into TX/RX mode. 
   sendPayload(dataByte);                                    // Sending payload over the radio link to be assembled in packet.
   Serial.println(dataByte, HEX);                            // Showing same payload on serial terminal.
-  dataByte = ~dataByte;
+  dataByte = ~dataByte;                                     // Toggling the byte at every iteration.
   digitalWrite(CE_pin, LOW);                                // Falling back to standby mode (I) or (II).
-  delay(1000);
+  delay(1000);                                              // Delay of 1 second after each iteration.
 }
 
 void writeReg(byte ADDR, byte CONTENT)
